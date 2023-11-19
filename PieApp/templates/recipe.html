@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+    <title>Pie Recipes</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <!-- Your header content here -->
+    </header>
+    <div>
+        <h1>Welcome, <span id="username">{{ username }}</span>!</h1>
+    </div>
+
+    <section class="pies">
+        <!-- Pie 1 -->
+        <div class="container-fluid">
+            <h2 class="text-center">Pie 1 Recipe</h2>
+
+            <div class="recipe">
+                <div class="recipe_inner">
+                    <img src="{% static 'apple.jpg' %}" alt="Pie 1 Image" height="200">
+                </div>
+                <h1>Pie 1</h1>
+                <button onclick="showRecipe('recipe1')">Show Recipe</button>
+                <div id="recipe1" style="display: none;">
+                    <p>Recipe for Pie 1:</p>
+                    <ul>
+                        <li>Step 1: Prepare the crust.</li>
+                        <li>Step 2: Add your favorite filling.</li>
+                        <li>Step 3: Bake in the oven until golden brown.</li>
+                        <li>Step 4: Enjoy your delicious pie!</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pie 2 -->
+        <div class="container-fluid">
+            <h2 class="text-center">Pie 2 Recipe</h2>
+
+            <div class="recipe">
+                <div class="recipe_inner">
+                    <img src="{% static 'apple.jpg' %}" alt="Pie 2 Image" height="200">
+                </div>
+                <h1>Pie 2</h1>
+                <button onclick="showRecipe('recipe2')">Show Recipe</button>
+                <div id="recipe2" style="display: none;">
+                    <p>Recipe for Pie 2:</p>
+                    <ul>
+                        <li>Step 1: Prepare the crust.</li>
+                        <li>Step 2: Add your favorite filling.</li>
+                        <li>Step 3: Bake in the oven until golden brown.</li>
+                        <li>Step 4: Enjoy your delicious pie!</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/b68baa7942.js" crossorigin="anonymous"></script>
+
+    <script>
+
+        const username = "{{ username }}";
+
+        document.getElementById("username").innerText = username;
+
+        function showRecipe(recipeId) {
+            const recipeDiv = document.getElementById(recipeId);
+            recipeDiv.style.display = recipeDiv.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+
+</html>
